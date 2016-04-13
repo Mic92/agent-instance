@@ -1,4 +1,6 @@
 FROM ubuntu:14.04.3
+ENV DEBIAN_FRONTEND=noninteractive
+ADD apt.conf /etc/apt/apt.conf
 ADD http://stedolan.github.io/jq/download/linux64/jq /usr/bin/
 RUN chmod +x /usr/bin/jq
 RUN apt-get update && apt-get install -y \
