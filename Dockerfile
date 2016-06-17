@@ -23,4 +23,6 @@ RUN apt-get update && apt-get install -y \
 ADD startup.sh /etc/init.d/agent-instance-startup
 CMD ["/etc/init.d/agent-instance-startup", "init"]
 # Work around overlay bug
-RUN touch /etc/monit/conf.d/.hold
+RUN touch /etc/monit/conf.d/.hold && mv /usr/sbin/haproxy /sbin/haproxy
+ADD haproxy-wrapper /usr/sbin/haproxy
+ADD haproxy-metrics.cfg /etc/haproxy-metrics.cfg

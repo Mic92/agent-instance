@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /sbin/haproxy "$@" -f /etc/haproxy-metrics.cfg
